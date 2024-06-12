@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
-public class ModityActivity extends AppCompatActivity {
+public class OnE_Activity extends AppCompatActivity {
 
     EditText etInsertName, etInsertJuice, etInsertAmount;
     Button btnCancel, btnSave;
@@ -43,7 +43,6 @@ public class ModityActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-            finish();
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -51,5 +50,10 @@ public class ModityActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+    private void dataInsert(){
+        data.add(etInsertName.getText().toString());
+        data.add(etInsertJuice.getText().toString());
+        data.add(etInsertAmount.getText().toString());
     }
 }
