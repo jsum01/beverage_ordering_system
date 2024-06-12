@@ -1,5 +1,6 @@
 package kr.ac.uc.beverage_ordering_system;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,10 +11,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class ModityActivity extends AppCompatActivity {
 
     EditText etInsertName, etInsertJuice, etInsertAmount;
     Button btnCancel, btnSave;
+
+    ArrayList<String> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,20 @@ public class ModityActivity extends AppCompatActivity {
         etInsertName = findViewById(R.id.etInsertName);
         btnCancel = findViewById(R.id.btnCancel);
         btnSave = findViewById(R.id.btnSave);
+
+        btnCancel.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        btnSave.setOnClickListener(v -> {
+            dataInsert();
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

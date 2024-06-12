@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <TextView            android:id="@+id/tvCustomerName"
+        <TextView
+            android:id="@+id/tvCustomerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -23,7 +24,8 @@
             android:layout_marginStart="10sp"
             android:layout_marginEnd="20sp"/>
 
-        <EditText            android:id="@+id/etInsertName"
+        <EditText
+            android:id="@+id/etInsertName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -36,7 +38,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <TextView            android:id="@+id/tvJuiceName"
+        <TextView
+            android:id="@+id/tvJuiceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -45,7 +48,8 @@
             android:layout_marginStart="10sp"
             android:layout_marginEnd="20sp"/>
 
-        <EditText            android:id="@+id/etInsertJuice"
+        <EditText
+            android:id="@+id/etInsertJuice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -58,7 +62,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <TextView            android:id="@+id/tvAmount"
+        <TextView
+            android:id="@+id/tvAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -67,11 +72,12 @@
             android:layout_marginStart="20sp"
             android:layout_marginEnd="28sp"/>
 
-        <EditText            android:id="@+id/etInsertAmount"
+        <EditText
+            android:id="@+id/etInsertAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="text"
             android:hint="0" />
     </LinearLayout>
     <!--    취소, 저장 버튼-->
@@ -79,13 +85,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
-        <Button            android:id="@+id/btnCancel"
+        <Button
+            android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginRight="10sp"
             android:text="취소"/>
-        <Button            android:id="@+id/btnSave"
+        <Button
+            android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
