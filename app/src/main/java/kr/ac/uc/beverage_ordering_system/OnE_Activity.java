@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
+import kr.ac.uc.beverage_ordering_system.model.OrderModel;
+
 public class OnE_Activity extends AppCompatActivity {
 
     EditText etInsertName, etInsertJuice, etInsertAmount;

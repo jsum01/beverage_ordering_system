@@ -1,4 +1,4 @@
-package kr.ac.uc.beverage_ordering_system;
+package kr.ac.uc.beverage_ordering_system.model;
 
 public class OrderModel {
     String name, juice;
