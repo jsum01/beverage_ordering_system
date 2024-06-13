@@ -18,8 +18,6 @@ public class OnE_Activity extends AppCompatActivity {
     EditText etInsertName, etInsertJuice, etInsertAmount;
     Button btnCancel, btnSave;
 
-    ArrayList<String> data = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

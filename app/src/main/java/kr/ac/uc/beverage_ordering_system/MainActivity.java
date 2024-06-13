@@ -3,6 +3,7 @@ package kr.ac.uc.beverage_ordering_system;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     Button btAddOrder;
+    TextView tvCustomerName, tvBeverageName, tvAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
         btAddOrder = findViewById(R.id.btAddOrder);
         btAddOrder.setOnClickListener(v -> goOrder());
+
+        tvCustomerName = findViewById(R.id.tvCustomerName);
+        tvBeverageName = findViewById(R.id.tvBeverageName);
+        tvAmount = findViewById(R.id.tvAmount);
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
