@@ -18,7 +18,7 @@ public class OnE_Activity extends AppCompatActivity {
     EditText etInsertName, etInsertJuice, etInsertAmount;
     Button btnCancel, btnSave;
 
-    ArrayList<String> data = new ArrayList<>();
+    ArrayList<OrderModel> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +39,9 @@ public class OnE_Activity extends AppCompatActivity {
         });
 
         btnSave.setOnClickListener(v -> {
-            dataInsert();
-
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            finish();
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -51,9 +50,5 @@ public class OnE_Activity extends AppCompatActivity {
             return insets;
         });
     }
-    private void dataInsert(){
-        data.add(etInsertName.getText().toString());
-        data.add(etInsertJuice.getText().toString());
-        data.add(etInsertAmount.getText().toString());
-    }
+
 }

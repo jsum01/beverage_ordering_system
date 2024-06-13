@@ -31,6 +31,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goOrder() {
-        Intent intent = new Intent(MainActivity.this, OnE_Activity.this);
+        Intent intent = new Intent(MainActivity.this, OnE_Activity.class);
     }
 }
