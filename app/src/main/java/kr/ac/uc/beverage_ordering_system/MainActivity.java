@@ -20,8 +20,12 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+<<<<<<< Updated upstream
         btAddOrder = findViewById(R.id.btAddOrder);
         btAddOrder.setOnClickListener(v -> goOrder());
+=======
+
+>>>>>>> Stashed changes
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
