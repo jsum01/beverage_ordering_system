@@ -55,7 +55,7 @@ public class OnE_Activity extends AppCompatActivity {
 
             Intent resultIntent = new Intent();
 
-            if (position >= 0) {// 수정기능
+            if (position >= 0) { // 선택된 position이 있으면
                 resultIntent.putExtra(MainActivity.EDIT_ORDER_KEY, setOrder);
                 resultIntent.putExtra(MainActivity.POSITION, position);
             } else { // 생성기능
