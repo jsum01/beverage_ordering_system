@@ -5,51 +5,65 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import java.util.ArrayList;
 
 import kr.ac.uc.beverage_ordering_system.model.OrderModel;
 
 public class OnE_Activity extends AppCompatActivity {
 
-    EditText etInsertName, etInsertJuice, etInsertAmount;
+    EditText etInsertCustomerName, etInsertBeverage, etInsertAmount;
     Button btnCancel, btnSave;
+    int position = -1;
 
-    ArrayList<OrderModel> data = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_modity);
+        setContentView(R.layout.activity_order_and_edit);
 
         etInsertAmount = findViewById(R.id.etInsertAmount);
-        etInsertJuice = findViewById(R.id.etInsertJuice);
-        etInsertName = findViewById(R.id.etInsertName);
+        etInsertBeverage = findViewById(R.id.etInsertBeverage);
+        etInsertCustomerName = findViewById(R.id.etInsertCustomerName);
         btnCancel = findViewById(R.id.btnCancel);
         btnSave = findViewById(R.id.btnSave);
 
-        btnCancel.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        });
 
+        Intent intent = getIntent();
+
+        // 수정 모드 Effect
+        if (intent != null && intent.hasExtra(MainActivity.EDIT_ORDER_KEY)) {
+            OrderModel order = (OrderModel) intent.getSerializableExtra(MainActivity.EDIT_ORDER_KEY);
+            position = intent.getIntExtra(MainActivity.POSITION, -1);
+            if (order != null) {
+                etInsertCustomerName.setText(order.getCustomerName());
+                etInsertBeverage.setText(order.getBeverage());
+                etInsertAmount.setText(String.valueOf(order.getAmount()));
+            }
+        }
+
+        // 취소 기능
+        btnCancel.setOnClickListener(v -> finish());
+
+        // 저장 기능(수정, 생성 동일)
         btnSave.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        });
+            // 입력된 정보 받아오기
+            String customerName = etInsertCustomerName.getText().toString();
+            String beverage = etInsertBeverage.getText().toString();
+            int amount = Integer.parseInt(etInsertAmount.getText().toString());
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+            OrderModel setOrder = new OrderModel(customerName, beverage, amount);
+
+            Intent resultIntent = new Intent();
+
+            if (position >= 0) {// 수정기능
+                resultIntent.putExtra(MainActivity.EDIT_ORDER_KEY, setOrder);
+                resultIntent.putExtra(MainActivity.POSITION, position);
+            } else { // 생성기능
+                resultIntent.putExtra(MainActivity.NEW_ORDER_KEY, setOrder);
+            }
+
+            setResult(RESULT_OK, resultIntent);
+            finish();
         });
     }
-
 }
